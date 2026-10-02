@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ApresentacaoPDM</string>
+    <string name="app_title"> Formulário Android</string>
+    <string name="app_subtitle"> Escolha uma implementação:</string>
+    <string name="btn_xml"> XML + View Binding</string>
+    <string name="btn_compose"> Jetpack Compose</string>
+    <string name="btn_Back"> Voltar</string>
+</resources>
