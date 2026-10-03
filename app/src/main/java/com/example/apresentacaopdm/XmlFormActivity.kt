@@ -10,15 +10,16 @@ class XmlFormActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivityXmlFormBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.buttonVoltar.setOnClickListener {
-            finish()
+        binding.btnSubmit.setOnClickListener {
+            val name = binding.etName.text.toString()
+            if (name.isNotBlank()) {
+                binding.tvResult.text = "Olá, $name! Formulário submetido com sucesso."
+            } else {
+                binding.tvResult.text = "Por favor, insere o teu nome."
+            }
         }
-        // ========================================
-// PESSOA 1 - IMPLEMENTAR FORMULÁRIO XML
-// ========================================
     }
 }
