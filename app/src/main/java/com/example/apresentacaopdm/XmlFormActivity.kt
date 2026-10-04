@@ -1,6 +1,8 @@
 package com.example.apresentacaopdm
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Patterns
 import androidx.appcompat.app.AppCompatActivity
 import com.example.apresentacaopdm.databinding.ActivityXmlFormBinding
@@ -14,13 +16,19 @@ class XmlFormActivity : AppCompatActivity() {
         binding = ActivityXmlFormBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Limpa os avisos de erro assim que o utilizador digita
+        setupAutoClearErrors()
+
         // Ação do Botão Submeter com Validações
         binding.btnSubmit.setOnClickListener {
             val name = binding.etName.text.toString().trim()
             val email = binding.etEmail.text.toString().trim()
             val ageText = binding.etAge.text.toString().trim()
 
-            // Reset dos avisos nos campos
+            // Identifica qual RadioButton foi selecionado
+            val profileType = if (binding.rbPersonal.isChecked) "Pessoal" else "Profissional"
+
+            // Reset inicial das mensagens de erro
             binding.etName.error = null
             binding.etEmail.error = null
             binding.etAge.error = null
@@ -32,14 +40,14 @@ class XmlFormActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            // 2. Validação do Email (tem de ter @ e formato válido)
+            // 2. Validação do Email (formato válido com @ e domínio)
             if (email.isBlank() || !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                 binding.etEmail.error = "Insira um e-mail válido (ex: email@exemplo.com)"
                 binding.tvResult.text = "Endereço de e-mail inválido."
                 return@setOnClickListener
             }
 
-            // 3. Validação da Idade (apenas números e valor razoável)
+            // 3. Validação da Idade (números válidos entre 1 e 120)
             val age = ageText.toIntOrNull()
             if (age == null || age <= 0 || age > 120) {
                 binding.etAge.error = "Insira uma idade válida"
@@ -48,12 +56,28 @@ class XmlFormActivity : AppCompatActivity() {
             }
 
             // Se passar em todas as validações:
-            binding.tvResult.text = "Sucesso!\nNome: $name\nE-mail: $email\nIdade: $age anos"
+            binding.tvResult.text = " Sucesso!\nNome: $name\nE-mail: $email\nIdade: $age anos\nPerfil: $profileType"
         }
 
-        // Ação do Botão Voltar ao Menu
+        // Ação do Botão Voltar
         binding.btnBack.setOnClickListener {
-            finish() // Fecha a atividade atual e regressa à MainActivity no topo da pilha
+            finish()
         }
+    }
+
+    private fun setupAutoClearErrors() {
+        val watcher = object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if (!s.isNullOrBlank()) {
+                    binding.tvResult.text = ""
+                }
+            }
+            override fun afterTextChanged(s: Editable?) {}
+        }
+
+        binding.etName.addTextChangedListener(watcher)
+        binding.etEmail.addTextChangedListener(watcher)
+        binding.etAge.addTextChangedListener(watcher)
     }
 }
