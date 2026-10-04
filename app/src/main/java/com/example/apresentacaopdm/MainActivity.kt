@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.buttonCompose.setOnClickListener {  //vai buscar o botaoXML que esta no activity_main.xml
-            val intent = Intent(this, XmlFormActivity::class.java)
+            val intent = Intent(this, ComposeFormActivity::class.java)
             startActivity(intent) // abre a xml activity
         }
     }
