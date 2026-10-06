@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp">
+
+    <!--
+    ACESSIBILIDADE - Tamanho do texto
+
+    Já usamos "sp" nos textos:
+    android:textSize="20sp"
+
+    O "sp" permite respeitar as preferências
+    de tamanho de texto definidas pelo utilizador.
+    -->
+
+    <!--
+    Background Light/Dark Mode
+
+    Se quiseres aplicar:
+    android:background="@color/background_color"
+    -->
+
+    <!-- Título -->
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Formulário Material Design 3"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!--
+    Text Color Light/Dark Mode
+
+    Se quiseres aplicar:
+    android:textColor="@color/text_color"
+
+    ACESSIBILIDADE:
+    Garantir contraste suficiente entre o texto
+    e o fundo para facilitar a leitura.
+    -->
+
+    <!-- Campo Nome - Material 3 -->
+
+    <!-- anrtigo <EditText> -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:hint="Nome completo"
+        app:boxBackgroundMode="filled"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!--
+        ACESSIBILIDADE:
+
+        O hint identifica o campo para o utilizador.
+        Também podemos adicionar:
+
+        android:importantForAccessibility="yes"
+        -->
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Campo Email - Material 3 -->
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilEmail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:hint="Endereço de E-mail"
+        app:boxBackgroundMode="filled"
+        app:layout_constraintTop_toBottomOf="@id/tilName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!--
+        ACESSIBILIDADE:
+
+        O campo já possui um texto descritivo através
+        do hint "Endereço de E-mail".
+
+        O inputType também ajuda o sistema a apresentar
+        o teclado adequado.
+        -->
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Campo Idade - Material 3 -->
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilAge"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:hint="Idade"
+        app:boxBackgroundMode="filled"
+        app:layout_constraintTop_toBottomOf="@id/tilEmail"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!--
+        ACESSIBILIDADE:
+
+        inputType="number" faz com que seja apresentado
+        um teclado numérico, facilitando a introdução da idade.
+        -->
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etAge"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Tipo de Perfil -->
+
+    <TextView
+        android:id="@+id/tvProfileLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tipo de Perfil:"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/tilAge"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Radio Buttons - Material 3 -->
+
+    <RadioGroup
+        android:id="@+id/rgAccountType"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="4dp"
+        app:layout_constraintTop_toBottomOf="@id/tvProfileLabel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!--
+        ACESSIBILIDADE:
+
+        Os RadioButtons possuem texto visível,
+        por isso o TalkBack consegue identificar
+        as opções "Pessoal" e "Profissional".
+
+        O RadioGroup também permite navegar entre
+        as opções relacionadas.
+        -->
+
+        <!-- antigo RadioButton -->
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/rbPersonal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pessoal"
+            android:checked="true" />
+
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/rbPro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Profissional"
+            android:layout_marginStart="24dp" />
+
+    </RadioGroup>
+
+    <!-- Botão Submeter - Material 3 -->
+
+    <!-- Antigo Button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSubmit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Submeter Formulário"
+        android:backgroundTint="#FF0000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rgAccountType" />
+
+    <!--
+
+    android:backgroundTint="#FF0000"
+    android:backgroundTint="@color/vermelho"
+
+    ACESSIBILIDADE:
+
+    O botão possui texto visível, portanto não é necessário
+    adicionar contentDescription.
+
+    Exemplo desnecessário:
+    android:contentDescription="Botão Submeter Formulário"
+
+    O texto existente já é suficiente para o TalkBack.
+    -->
+
+    <!--
+    Primary Color Light/Dark Mode
+
+    Se quiseres definir manualmente:
+    app:backgroundTint="@color/primary_color"
+
+    ACESSIBILIDADE:
+
+    É importante garantir contraste suficiente entre
+    a cor do botão e o texto.
+    -->
+
+    <!-- Texto de Resultado / Erros -->
+
+    <TextView
+        android:id="@+id/tvResult"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textSize="15sp"
+        app:layout_constraintTop_toBottomOf="@id/btnSubmit"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!--
+    ACESSIBILIDADE:
+
+    O resultado utiliza "sp", permitindo que o texto
+    acompanhe o tamanho definido pelo utilizador.
+
+    Também podemos atualizar o texto de forma clara
+    quando existem erros de validação.
+    -->
+
+    <!-- Botão Voltar - Material 3 Outlined -->
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnBack"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Voltar ao Menu Inicial"
+        android:layout_marginBottom="16dp"
+        style="@style/Widget.Material3.Button.OutlinedButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!--
+    ACESSIBILIDADE:
+
+    O botão possui texto visível e uma área de toque
+    suficientemente grande, não sendo necessário
+    contentDescription adicional.
+    -->
+
+</androidx.constraintlayout.widget.ConstraintLayout>
