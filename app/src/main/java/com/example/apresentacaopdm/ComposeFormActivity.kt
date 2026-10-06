@@ -28,29 +28,29 @@ class ComposeFormActivity: ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent { //indica que a activity vai usar compose para construir a UI
 
-            Column (
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(12.dp),
-                horizontalAlignment = Alignment.CenterHorizontally
-            ){
-                Spacer(modifier = Modifier.height(24.dp))
+                Column (
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(12.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ){
+                    Spacer(modifier = Modifier.height(24.dp))
 
-                Formulario()
+                    Formulario()
 
-                Spacer(modifier = Modifier.height(32.dp))
+                    Spacer(modifier = Modifier.height(32.dp))
 
-                Button(
-                    onClick = {
-                        finish()
+                    Button(
+                        onClick = {
+                            finish()
+                        }
+                    ) {
+                        Text("Voltar")
                     }
-                ) {
-                    Text("Voltar")
                 }
             }
         }
     }
-}
 
 @Composable
 fun Formulario() {

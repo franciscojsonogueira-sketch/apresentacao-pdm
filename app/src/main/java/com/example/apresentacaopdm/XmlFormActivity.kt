@@ -10,13 +10,13 @@ import com.example.apresentacaopdm.databinding.ActivityXmlFormMaterialBinding
 
 class XmlFormActivity : AppCompatActivity() {
 
-    //private lateinit var binding: ActivityXmlFormBinding
-    private lateinit var binding: ActivityXmlFormMaterialBinding
+    private lateinit var binding: ActivityXmlFormBinding
+    //private lateinit var binding: ActivityXmlFormMaterialBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //binding = ActivityXmlFormBinding.inflate(layoutInflater)
-        binding = ActivityXmlFormMaterialBinding.inflate(layoutInflater)
+        binding = ActivityXmlFormBinding.inflate(layoutInflater)
+        //binding = ActivityXmlFormMaterialBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         // Limpa os avisos de erro assim que o utilizador digita
