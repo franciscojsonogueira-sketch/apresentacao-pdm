@@ -117,15 +117,16 @@
     <!-- Botão Voltar ao Menu -->
     <Button
         android:id="@+id/btnBack"
+        style="?attr/materialButtonOutlinedStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Voltar ao Menu Inicial"
-        style="?attr/materialButtonOutlinedStyle"
         android:layout_marginBottom="16dp"
+        android:text="Voltar ao Menu Inicial"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-         />
+        app:layout_constraintVertical_bias="0.859" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

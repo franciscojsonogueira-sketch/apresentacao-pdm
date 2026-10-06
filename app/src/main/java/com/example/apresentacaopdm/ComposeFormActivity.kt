@@ -139,12 +139,14 @@ fun Formulario() {
 
         Spacer(modifier = Modifier.height(32.dp))
 
+        var contador by remember {mutableStateOf(0)}
         Button(
             onClick = {
-
+                contador++
+                println("$contador")
             }
         ){
-            Text("Clicado 0 vezes")
+            Text("Clicado ${contador} vezes")
         }
     }
 }

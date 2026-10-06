@@ -5,9 +5,8 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.apresentacaopdm.databinding.ActivityMainBinding
-
-
 import com.example.apresentacaopdm.compose.DarkLightModeActivity
+
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding // declarar variavel com tipo ActivityMainBinding
