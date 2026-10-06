@@ -14,6 +14,9 @@
 
         <activity android:name=".XmlFormActivity" />
         <activity android:name=".ComposeFormActivity" />
+        <activity android:name=".compose.ComposeAdaptiveActivity" />
+        <activity android:name=".compose.MaterialDesignActivity" />
+        <activity android:name=".compose.DarkLightModeActivity" />
 
         <activity
             android:name=".MainActivity"

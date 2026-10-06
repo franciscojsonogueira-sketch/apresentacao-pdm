@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.apresentacaopdm.databinding.ActivityMainBinding
 
 
+import com.example.apresentacaopdm.compose.DarkLightModeActivity
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding // declarar variavel com tipo ActivityMainBinding
@@ -24,8 +25,11 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.buttonCompose.setOnClickListener {  //vai buscar o botaoXML que esta no activity_main.xml
-            val intent = Intent(this, XmlFormActivity::class.java)
+            val intent = Intent(this, DarkLightModeActivity::class.java)
             startActivity(intent) // abre a xml activity
+
+            //ComposeFormActivity::class.java <- original
+            //DarkLightModeActivity::class.java
         }
     }
 }
